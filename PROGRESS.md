@@ -9,4 +9,5 @@
 
 ## Registro
 - 2026-11-02: especificación inicial v0.1 e inventario (primer commit).
-- 2026-11-02: agrego AGENTS.md con las instrucciones del agente
+- 2026-11-02: agrego AGENTS.md con las instrucciones del agente.
+- 2026-11-02: comprobé que OpenCode lee AGENTS.md (ver evidencia/01...)
