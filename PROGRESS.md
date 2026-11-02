@@ -22,4 +22,4 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
 - Mi verificación: ver evidencia/03-episodio1-verificacion.md
 - Decisión: (aceptar) porque (me parecio bien lo que planeaba realizar).
 - Pendiente: cancelar (RF-07) queda para el Episodio 2.
-- Commit: (completar con el código del commit después de hacerlo)
+- Commit: (bcac158)
