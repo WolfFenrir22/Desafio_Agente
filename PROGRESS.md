@@ -36,3 +36,32 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
 - Pendiente: interfaz gráfica (Episodio 3).
 - Commit: [29f5ec0](https://github.com/WolfFenrir22/Desafio_Agente/commit/29f5ec0)
 - Cambio en la especificación (SPEC 0.2): [8336d04](https://github.com/WolfFenrir22/Desafio_Agente/commit/8336d04)
+
+## Episodio 3: interfaz gráfica (2026-11-03)
+- Objetivo y requisito: RF-10, interfaz gráfica mínima con Tkinter para
+  consultar disponibilidad, reservar, cancelar y listar reservas.
+- Contexto e instrucción: el agente leyó SPEC.md, AGENTS.md, dominio.py y
+  repositorio.py. Le pedí crear reservas/gui.py usando solo funciones de
+  repositorio.py, sin duplicar reglas de negocio, y que avisara antes qué
+  archivos tocaría. Pedido completo y plan en Evidencias/05-episodio3.md.
+- Resultado del agente: creó reservas/gui.py y agregó en repositorio.py la
+  función cargar_inventario (una función que delega en dominio.py). Informó
+  23 pruebas OK. Pidió permiso para empezar y se lo di. Dijo haber borrado un
+  reservas.db vacío que había creado su propia prueba.
+- Mi verificación:
+  - Ejecuté yo las pruebas: 23 OK.
+  - Revisé en Source Control que el cambio en repositorio.py fuera solo la
+    función nueva.
+  - Revisé gui.py y repositorio.py con las búsquedas indicadas, sin
+    hallazgos.
+  - Probé la ventana a mano en 11 pasos con datos ficticios (tabla completa
+    en Evidencias/05-episodio3.md); todos coincidieron con lo esperado,
+    incluida la persistencia al cerrar y reabrir (Evidencias/05-ventana.png).
+  - Las pruebas automáticas no cubren la ventana: esa parte se comprueba solo
+    con el procedimiento manual.
+- Decisión: acepté el resultado, porque las 23 pruebas siguen pasando, la
+  ventana cumplió los 11 pasos, gui.py solo llama al repositorio y el único
+  cambio en repositorio.py fue la función cargar_inventario. No hubo
+  correcciones al agente en este episodio.
+- Pendiente: README con las cuatro secciones y entrega.
+- Commit: (completar después del push)

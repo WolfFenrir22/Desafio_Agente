@@ -64,6 +64,11 @@ def _proximo_id(conexion):
     return "R-{:04d}".format(maximo + 1)
 
 
+def cargar_inventario(ruta_inventario=_INVENTARIO_DEFECTO):
+    """RF-01: carga el inventario (para que la interfaz use el repositorio)."""
+    return dominio.cargar_inventario(ruta_inventario)
+
+
 def listar_reservas(ruta):
     """RF-08: devuelve todas las reservas, activas y canceladas."""
     conexion = _abrir(ruta)
