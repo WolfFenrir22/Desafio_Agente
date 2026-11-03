@@ -56,6 +56,7 @@ se permite MIC-02 de 10:00 a 11:00.
 - 0.1: versión inicial, commit [1f79d89](https://github.com/WolfFenrir22/Desafio_Agente/commit/1f79d89).
 - 0.2: se aclara que el reinicio de datos reinicia la numeración, decisión del
   Episodio 2, commit [8336d04](https://github.com/WolfFenrir22/Desafio_Agente/commit/8336d04).
+- 0.3: corrijo versión y formato y completo los criterios de aceptación (CA-08 a CA-11), commit [9d92cb3](https://github.com/WolfFenrir22/Desafio_Agente/commit/9d92cb3).
 
 ## 2. Solución
 
@@ -250,8 +251,7 @@ está bajo "Mi verificación". Ambos se distinguen.
   Control que el cambio en `repositorio.py` fuera solo esa función, revisé `gui.py`
   y probé la ventana en 11 pasos, incluida la persistencia al reabrir. No hubo
   correcciones al agente.
-- **Evidencia:** código en el commit [67daca2](https://github.com/WolfFenrir22/Desafio_Agente/commit/67daca2);
-  la evidencia (`05-episodio3.md` y `05-ventana.jpeg`) se agregó en un commit
-  posterior, (completar con el código del commit del README y la evidencia):
-  [Evidencias/05-episodio3.md](Evidencias/05-episodio3.md) y
-  [Evidencias/05-ventana.jpeg](Evidencias/05-ventana.jpeg).
+- **Evidencia:** el código está en el commit [67daca2](https://github.com/WolfFenrir22/Desafio_Agente/commit/67daca2);
+  la evidencia ([Evidencias/05-episodio3.md](Evidencias/05-episodio3.md) y
+  [Evidencias/05-ventana.jpeg](Evidencias/05-ventana.jpeg)) se agregó después, en el
+  commit [0ffca81](https://github.com/WolfFenrir22/Desafio_Agente/commit/0ffca81).
