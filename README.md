@@ -10,7 +10,7 @@ Secciones: [1. Especificación breve](#1-especificación-breve) ·
 
 ## 1. Especificación breve
 
-Especificación completa: [SPEC.md](SPEC.md) (versión 0.2).
+Especificación completa: [SPEC.md](SPEC.md) (versión 0.3).
 
 **Problema.** La coordinación de un laboratorio registra pedidos en mensajes y una
 planilla. A veces confirma la misma unidad en horarios superpuestos y a veces una
@@ -48,7 +48,7 @@ de la fecha ni de una cuenta de modelo.
   reinicien los datos de forma explícita (vuelven a `R-0001`).
 - Solicitantes ficticios.
 
-**Criterios de aceptación.** CA-01 a CA-07 en SPEC.md. Ejemplo: con MIC-01
+**Criterios de aceptación.** CA-01 a CA-11 en SPEC.md. Ejemplo: con MIC-01
 reservado de 10:00 a 11:00, se rechaza 10:30 a 11:30, se permite 11:00 a 12:00 y
 se permite MIC-02 de 10:00 a 11:00.
 
@@ -105,7 +105,6 @@ proyecto (excluido de Git). **El comando de reinicio borra todas las reservas**
 (activas y canceladas), recarga el inventario y reinicia la numeración en
 `R-0001`. Pide confirmación y nada borra datos de forma implícita. Para borrar un
 archivo de prueba sin tocar el real, pasale otra ruta como `prueba.db`.
-(verificar: probá el comando con una ruta de prueba y confirmá este comportamiento.)
 
 **Ejemplo de uso en la ventana.**
 Entrada: unidad `MIC-01`, inicio `2026-11-05T10:00`, fin `2026-11-05T11:00`,
@@ -150,7 +149,7 @@ de 2026) y Antigravity CLI (código cerrado y cuota semanal no publicada).
 OpenCode es de código abierto y permite usar un modelo gratuito sin tarjeta.
 
 **Instrucciones usadas.** [AGENTS.md](AGENTS.md), escrito en la raíz del
-repositorio. Extracto:
+repositorio. Extracto abreviado (el texto completo está en el archivo):
 
 ```
 - Python, solo biblioteca estándar. No instales dependencias.
@@ -163,15 +162,11 @@ repositorio. Extracto:
 
 **Contexto suministrado y excluido.** En cada episodio el agente leyó SPEC.md,
 AGENTS.md y los archivos de código relevantes. Se excluyeron claves, tokens y datos
-reales; se usaron solicitantes ficticios (por ejemplo "Ana Prueba"). Las claves
-del agente se guardan fuera del repositorio.
+reales; se usaron solicitantes ficticios (por ejemplo "Ana Prueba"). No se guardaron claves ni tokens en el repositorio.
 
-**Permisos, controles y aprobaciones.** En cada episodio el agente presentó su
-plan y esperó mi confirmación antes de modificar archivos (en el Episodio 1 le
-agregué una precisión al plan). AGENTS.md prohíbe commits del agente: todos los
+**Permisos, controles y aprobaciones.** En los Episodios 1 y 3 el agente presentó su plan y esperó mi confirmación antes de modificar archivos (en el Episodio 1 le agregué una precisión). En el Episodio 2 mostró su plan pero siguió sin esperar mi respuesta.. AGENTS.md prohíbe commits del agente: todos los
 commits los hice yo después de revisar los cambios en Source Control y de ejecutar
-las pruebas por mi cuenta. (completar: si OpenCode pidió aprobar comandos
-específicos, indicá cuáles.)
+las pruebas por mi cuenta. Fuera de la confirmación para empezar, OpenCode no me pidió aprobar comandos específicos.
 
 **Adaptación específica comprobable.** Regla de intervalos semiabiertos en
 AGENTS.md, para que una reserva que termina a las 11:00 no choque con otra que
@@ -187,11 +182,12 @@ Episodio 2 ([Evidencias/04-episodio2.md](Evidencias/04-episodio2.md)).
 **Retención del progreso.** [PROGRESS.md](PROGRESS.md), versionado en Git, con
 entorno, decisiones y una sección por episodio.
 
-**Uso de un asistente de chat.** Usé un asistente de chat (Claude) para entender
-la consigna, preparar borradores iniciales de SPEC.md y AGENTS.md y de los pedidos
-al agente, y revisar los planes del agente antes de aprobarlos. El código de la
-aplicación y las pruebas lo escribió OpenCode; las verificaciones y decisiones son
-mías.
+**Uso de un asistente de chat.**Uso de un asistente de chat.** Usé un asistente de chat (Claude) para entender la consigna, preparar borradores iniciales de SPEC.md y AGENTS.md y de los pedidos
+al agente, proponerme las pruebas de sensibilidad, ordenar y redactar el texto de
+los archivos de evidencia y del README a partir de los resultados que yo le
+informé, y revisar los planes del agente (en el Episodio 3 aprobé el plan antes de
+revisarlo con él). El código de la aplicación y las pruebas lo escribió OpenCode;
+ejecuté yo las pruebas y las verificaciones, y las decisiones de aceptar son mías.
 
 ## 4. Registro de decisiones y delegación
 

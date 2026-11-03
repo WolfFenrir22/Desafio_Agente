@@ -21,7 +21,7 @@
 - 2026-11-03: Episodio 3 (interfaz gráfica), commit 67daca2.
 - 2026-11-03: README y evidencia del Episodio 3, commit 0ffca81.
 - 2026-11-03: SPEC 0.3 (corrección de versión y formato, criterios de
-  aceptación CA-08 a CA-11), commit (completar con el código).
+  aceptación CA-08 a CA-11), commit [9d92cb3](https://github.com/WolfFenrir22/Desafio_Agente/commit/9d92cb3).
 
 ## Episodio 1: lógica de dominio (2026-11-02)
 - Objetivo y requisito: RF-02 a RF-06.
