@@ -66,6 +66,7 @@ Se cargan desde `inventario.json`.
 - Unidad: el ID debe coincidir exactamente con el del inventario.
 - Solicitante: texto ficticio; se recortan espacios al inicio y al final.
 - Almacenamiento: SQLite en `reservas.db` (fuera de Git).
+-Tras un reinicio explícito de datos, la numeración vuelve a R-0001.
 
 ## 7. Criterios de aceptación
 - CA-01 Con MIC-01 reservado de 10:00 a 11:00, reservar MIC-01 de 10:30 a 11:30
@@ -83,3 +84,5 @@ Se cargan desde `inventario.json`.
 
 ## 8. Historial de cambios
 - 0.1 (2026-11-02): versión inicial.
+- 0.2 (2026-11-02): aclaro que el reinicio de datos reinicia la numeración de identificadores (decisión del Episodio 2).
+
