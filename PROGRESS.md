@@ -64,4 +64,4 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
   cambio en repositorio.py fue la función cargar_inventario. No hubo
   correcciones al agente en este episodio.
 - Pendiente: README con las cuatro secciones y entrega.
-- Commit: (completar después del push)
+- Commit: - Commit: [67daca2](https://github.com/WolfFenrir22/Desafio_Agente/commit/67daca2)
