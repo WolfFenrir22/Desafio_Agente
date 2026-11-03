@@ -23,6 +23,14 @@ class Superposicion(ValueError):
     """RF-04: superposición con una reserva activa de la misma unidad."""
 
 
+class ReservaNoEncontrada(ValueError):
+    """RF-07: no existe ninguna reserva con ese identificador."""
+
+
+class ReservaYaCancelada(ValueError):
+    """RF-07: la reserva ya estaba en estado cancelada."""
+
+
 @dataclass
 class Reserva:
     id: str
@@ -123,11 +131,16 @@ def crear_reserva(
     )
 
 
-def cancelar(reserva):
-    """R6: solo cambia el estado; conserva id y datos."""
-    if reserva.estado == ESTADO_CANCELADA:
-        raise EntradaInvalida(
-            "la reserva {} ya está cancelada".format(reserva.id)
-        )
-    reserva.estado = ESTADO_CANCELADA
-    return reserva
+def cancelar_reserva(reservas, identificador):
+    """RF-07: cancela por id; solo cambia el estado (R6)."""
+    for reserva in reservas:
+        if reserva.id == identificador:
+            if reserva.estado == ESTADO_CANCELADA:
+                raise ReservaYaCancelada(
+                    "la reserva {} ya está cancelada".format(identificador)
+                )
+            reserva.estado = ESTADO_CANCELADA
+            return reserva
+    raise ReservaNoEncontrada(
+        "no existe reserva con id {}".format(identificador)
+    )

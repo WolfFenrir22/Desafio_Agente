@@ -149,7 +149,7 @@ class CriteriosDeAceptacion(CasoBase):
 
     def test_CA_05_cancelada_no_bloquea(self):
         original = self.crear()
-        dominio.cancelar(original)
+        dominio.cancelar_reserva([original], original.id)
         self.assertEqual(original.estado, dominio.ESTADO_CANCELADA)
         self.assertEqual(original.id, "R-0001")
         self.assertEqual(original.unidad, "MIC-01")
@@ -186,7 +186,7 @@ class CriteriosDeAceptacion(CasoBase):
                     fin,
                     "R-{:04d}".format(indice),
                 )
-        dominio.cancelar(activa)
+        dominio.cancelar_reserva(existentes, activa.id)
         self.verificar_paridad(
             existentes,
             "MIC-01",
@@ -211,6 +211,25 @@ class CriteriosDeAceptacion(CasoBase):
             dominio.consultar_disponibilidad
         ).parameters
         self.assertNotIn("solicitante", parametros)
+
+
+class CancelacionRF07(CasoBase):
+    def test_cancelar_inexistente(self):
+        reserva = self.crear()
+        with self.assertRaises(dominio.ReservaNoEncontrada):
+            dominio.cancelar_reserva([reserva], "R-9999")
+        self.assertEqual(reserva.estado, dominio.ESTADO_ACTIVA)
+
+    def test_cancelar_ya_cancelada(self):
+        reserva = self.crear()
+        dominio.cancelar_reserva([reserva], reserva.id)
+        with self.assertRaises(dominio.ReservaYaCancelada):
+            dominio.cancelar_reserva([reserva], reserva.id)
+        self.assertEqual(reserva.estado, dominio.ESTADO_CANCELADA)
+        self.assertEqual(reserva.id, "R-0001")
+        self.assertEqual(reserva.solicitante, "Ana Prueba")
+        self.assertEqual(reserva.inicio, datetime(2026, 11, 5, 10, 0))
+        self.assertEqual(reserva.fin, datetime(2026, 11, 5, 11, 0))
 
 
 class SuperposicionSemiabierta(CasoBase):

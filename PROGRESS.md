@@ -23,3 +23,15 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
 - Decisión: (aceptar) porque (me parecio bien lo que planeaba realizar).
 - Pendiente: cancelar (RF-07) queda para el Episodio 2.
 - Commit: (bcac158)
+
+## Episodio 2: cancelación y persistencia (2026-11-02)
+- Objetivo y requisito: RF-07 y RF-09 (cancelar y guardar en SQLite).
+- Contexto e instrucción: ver evidencia/04-episodio2.md
+- Resultado del agente: cancelar_reserva en dominio.py, reservas/repositorio.py
+  con SQLite, comando de reinicio, 23 pruebas.
+- Mi verificación: ejecuté las pruebas (python -m unittest discover -s tests -v), prueba de sensibilidad
+  (completar), revisión del código (completar).
+- Decisión: (aceptar) porque (Funcionaba de acuerdo a lo que se solicito). Además decidí documentar en
+  SPEC 0.2 que el reinicio reinicia la numeración.
+- Pendiente: interfaz gráfica (Episodio 3).
+- Commit: (completar)
