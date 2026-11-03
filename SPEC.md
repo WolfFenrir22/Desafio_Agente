@@ -1,6 +1,6 @@
 # Especificación: sistema de reservas de laboratorio
 
-Versión 0.1 (2026-11-02). Los cambios posteriores se registran al final y en Git.
+Versión 0.3 (2026-11-03). Los cambios posteriores se registran al final y en Git.
 
 ## 1. Problema
 La coordinación de un laboratorio registra pedidos en mensajes y una planilla.
@@ -11,7 +11,8 @@ reservar y cancelar sin perder el historial.
 ## 2. Alcance
 Dentro: leer el inventario inicial, consultar disponibilidad por unidad e
 intervalo, crear reservas, cancelarlas conservando el registro, listar
-reservas y persistir los datos entre reinicios.
+reservas, persistir los datos entre reinicios y ofrecer una interfaz gráfica
+mínima.
 Fuera: administrar el inventario, autenticación y roles, notificaciones,
 pagos, integraciones externas, despliegue y concurrencia distribuida.
 
@@ -62,13 +63,14 @@ Se cargan desde `inventario.json`.
 - Límites: sin duración mínima o máxima y sin límite de anticipación.
   Un intervalo puede cruzar la medianoche.
 - Identificadores: `R-0001`, `R-0002`, ... incrementales; nunca se reutilizan,
-  ni siquiera tras cancelar.
+  ni siquiera tras cancelar. Única excepción: tras un reinicio explícito de
+  datos (que borra todas las reservas), la numeración vuelve a `R-0001`.
 - Unidad: el ID debe coincidir exactamente con el del inventario.
 - Solicitante: texto ficticio; se recortan espacios al inicio y al final.
 - Almacenamiento: SQLite en `reservas.db` (fuera de Git).
--Tras un reinicio explícito de datos, la numeración vuelve a R-0001.
 
 ## 7. Criterios de aceptación
+Los ejemplos con horas son del mismo día.
 - CA-01 Con MIC-01 reservado de 10:00 a 11:00, reservar MIC-01 de 10:30 a 11:30
   se rechaza.
 - CA-02 En ese mismo caso, reservar MIC-01 de 11:00 a 12:00 se acepta.
@@ -81,8 +83,21 @@ Se cargan desde `inventario.json`.
   la creación para los mismos datos.
 - CA-07 Tras crear una reserva activa y otra cancelada, cerrar y reabrir la
   aplicación mantiene ambas con sus estados.
+- CA-08 Cancelar un identificador inexistente, o una reserva que ya estaba
+  cancelada, se rechaza y no modifica ningún dato.
+- CA-09 Al cargar el inventario se obtienen las cinco unidades de la sección 3.
+- CA-10 El listado muestra todas las reservas, activas y canceladas, con
+  identificador, unidad, solicitante, inicio, fin y estado.
+- CA-11 Desde la interfaz gráfica se pueden hacer las operaciones de CA-01 a
+  CA-07; se comprueba con el procedimiento manual de
+  `Evidencias/05-episodio3.md`.
 
 ## 8. Historial de cambios
 - 0.1 (2026-11-02): versión inicial.
-- 0.2 (2026-11-02): aclaro que el reinicio de datos reinicia la numeración de identificadores (decisión del Episodio 2).
-
+- 0.2 (2026-11-03): aclaro que el reinicio de datos reinicia la numeración de
+  identificadores (decisión del Episodio 2).
+- 0.3 (2026-11-03): corrijo el número de versión del encabezado y el formato de
+  la regla del reinicio; agrego la interfaz al alcance y los criterios CA-08 a
+  CA-11, que faltaban para RF-01, RF-07, RF-08 y RF-10. Esos criterios se
+  escribieron después de la implementación y ya estaban cubiertos por las pruebas
+  automáticas o por el procedimiento manual.
