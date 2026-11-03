@@ -22,7 +22,7 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
 - Mi verificación: ver evidencia/03-episodio1-verificacion.md
 - Decisión: (aceptar) porque (me parecio bien lo que planeaba realizar).
 - Pendiente: cancelar (RF-07) queda para el Episodio 2.
-- Commit: (bcac158)
+- Commit: [bcac158](https://github.com/WolfFenrir22/Desafio_Agente/commit/bcac158)
 
 ## Episodio 2: cancelación y persistencia (2026-11-02)
 - Objetivo y requisito: RF-07 y RF-09 (cancelar y guardar en SQLite).
@@ -30,8 +30,9 @@ la operación de cancelar queda para el Episodio 2. Anotalo en PROGRESS.md para 
 - Resultado del agente: cancelar_reserva en dominio.py, reservas/repositorio.py
   con SQLite, comando de reinicio, 23 pruebas.
 - Mi verificación: ejecuté las pruebas (python -m unittest discover -s tests -v), prueba de sensibilidad
-  (completar), revisión del código (completar).
+  (ver 04-episodio2.md en la carpeta Evidencias), revisión del código (ver 04-episodio2.md en la carpeta Evidencias).
 - Decisión: (aceptar) porque (Funcionaba de acuerdo a lo que se solicito). Además decidí documentar en
   SPEC 0.2 que el reinicio reinicia la numeración.
 - Pendiente: interfaz gráfica (Episodio 3).
-- Commit: (completar)
+- Commit: [29f5ec0](https://github.com/WolfFenrir22/Desafio_Agente/commit/29f5ec0)
+- Cambio en la especificación (SPEC 0.2): [8336d04](https://github.com/WolfFenrir22/Desafio_Agente/commit/8336d04)
