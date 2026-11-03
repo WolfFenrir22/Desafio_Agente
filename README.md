@@ -178,7 +178,7 @@ empieza a las 11:00. Evidencia de uso: el agente resumió esa regla al preguntar
 qué instrucciones veía ([Evidencias/01-agente-lee-instrucciones.md](Evidencias/01-agente-lee-instrucciones.md)), y las pruebas CA-02 y
 `test_intervalos_consecutivos_no_superpuestos` la verifican. Al cambiar a propósito
 `<` por `<=` en `hay_superposicion`, esas dos pruebas fallaron
-([Evidencias/03](Evidencias/)). También se adaptó un procedimiento de persistencia
+([Evidencias/03-episodio1-verificacion.md](Evidencias/03-episodio1-verificacion.md)). También se adaptó un procedimiento de persistencia
 (confirmar cada alta y cancelación antes de devolver, crear tablas solo si no
 existen, borrar solo con el comando explícito), verificado con las pruebas del
 Episodio 2 ([Evidencias/04-episodio2.md](Evidencias/04-episodio2.md)).
@@ -250,6 +250,8 @@ está bajo "Mi verificación". Ambos se distinguen.
   Control que el cambio en `repositorio.py` fuera solo esa función, revisé `gui.py`
   y probé la ventana en 11 pasos, incluida la persistencia al reabrir. No hubo
   correcciones al agente.
-- **Evidencia:** commit [67daca2](https://github.com/WolfFenrir22/Desafio_Agente/commit/67daca2);
+- **Evidencia:** código en el commit [67daca2](https://github.com/WolfFenrir22/Desafio_Agente/commit/67daca2);
+  la evidencia (`05-episodio3.md` y `05-ventana.jpeg`) se agregó en un commit
+  posterior, (completar con el código del commit del README y la evidencia):
   [Evidencias/05-episodio3.md](Evidencias/05-episodio3.md) y
   [Evidencias/05-ventana.jpeg](Evidencias/05-ventana.jpeg).
